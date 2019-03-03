@@ -21,7 +21,8 @@ function Home() {
     <Container>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=AWKzr6n0ea0"
-        playing
+        playing={true}
+        loop={true}
         width="120%"
         height="120%"
         style={{

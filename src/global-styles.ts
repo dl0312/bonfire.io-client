@@ -13,6 +13,7 @@ ${reset};
   body{
     overflow: hidden;
     font-family: 'Nanum Gothic', sans-serif;
+    max-height: 100vh;
   }
   input{
     border: none;

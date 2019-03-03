@@ -26,7 +26,7 @@ const People = styled.div`
 const HeaderTitle = styled.div`
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 1rem;
   color: white;
 `;
@@ -53,7 +53,12 @@ const SubmitBtn = styled.input`
   background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 `;
 
-const ChatList = styled.ul``;
+const ChatList = styled.ul`
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+`;
 
 const ChatMessage = styled.li`
   font-size: 1rem;
@@ -69,6 +74,7 @@ const ChatMessage = styled.li`
 
 const Name = styled.span`
   font-weight: 900;
+  white-space: pre;
 `;
 
 const Message = styled.div``;
@@ -130,15 +136,7 @@ function Chat({ name }: any) {
           <span>{userNum}</span>
         </People>
       </Header>
-      <ChatList
-        ref={messagesEnd}
-        style={{
-          width: "100%",
-          height: "100%",
-          overflowY: "auto",
-          padding: "1rem 3rem"
-        }}
-      >
+      <ChatList ref={messagesEnd}>
         {messages.map((message: IChatMessage, index: number) => (
           <ChatMessage key={index}>
             <Name>{message.name}</Name>
