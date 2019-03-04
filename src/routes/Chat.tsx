@@ -60,22 +60,51 @@ const SubmitBtn = styled.input`
 const ChatList = styled.ul`
   width: 100%;
   overflow-y: auto;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   position: absolute;
   top: 50px;
   bottom: 50px;
 `;
 
-const ChatMessage = styled.li`
+interface IChatMessageProps {
+  type: "chat" | "noti" | "yours";
+}
+
+const ChatMessage = styled("li")<IChatMessageProps>`
   font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: white;
+  margin-bottom: 0.7rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  animation-name: fadeIn;
+  justify-content: ${props =>
+    props.type === "noti"
+      ? "center"
+      : props.type === "chat"
+      ? "flex-start"
+      : "flex-end"};
+  animation-name: ${props =>
+    props.type === "noti"
+      ? "fadeInFromBottom"
+      : props.type === "chat"
+      ? "fadeInFromLeft"
+      : "fadeInFromRight"};
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
+`;
+
+interface IChatContainerProps {
+  type: "chat" | "noti" | "yours";
+}
+
+const ChatContainer = styled("div")<IChatContainerProps>`
+  display: inline-flex;
+  padding: 0.5rem;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  border-top-right-radius: ${props =>
+    props.type === "yours" ? "0px" : undefined};
+  border-top-left-radius: ${props =>
+    props.type === "chat" ? "0px" : undefined};
 `;
 
 const Name = styled.span`
@@ -86,6 +115,7 @@ const Name = styled.span`
 const Message = styled.div``;
 
 interface IChatMessage {
+  type: "chat" | "noti" | "yours";
   name: string;
   message: string;
 }
@@ -105,8 +135,8 @@ function Chat({ name }: any) {
   const [userNum, setUserNum] = useState(0);
 
   const handleGetNewMessage = (data: any) => {
-    const { name, message } = data;
-    setMessages({ type: "add", value: { name, message } });
+    const { type, name, message } = data;
+    setMessages({ type: "add", value: { type, name, message } });
     scrollToBottom();
     setMessage("");
   };
@@ -142,9 +172,11 @@ function Chat({ name }: any) {
       </Header>
       <ChatList ref={messagesEnd}>
         {messages.map((message: IChatMessage, index: number) => (
-          <ChatMessage key={index}>
-            <Name>{message.name}</Name>
-            <Message>{message.message}</Message>
+          <ChatMessage type={message.type} key={index}>
+            <ChatContainer type={message.type}>
+              {message.type !== "yours" && <Name>{message.name}</Name>}
+              <Message>{message.message}</Message>
+            </ChatContainer>
           </ChatMessage>
         ))}
       </ChatList>

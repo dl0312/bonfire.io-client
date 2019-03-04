@@ -33,16 +33,37 @@ ${reset};
 }
 
 @keyframes expend {
-    from {
+    0% {
       width: 0%;
     }
-    to {
+    100% {
       width: 100%;
     }
   }
 
-  @keyframes fadeIn {
+  @keyframes fadeInFromBottom {
     from {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInFromRight {
+    from {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInFromLeft {
+    from {
+      transform: translateX(-1rem);
       opacity: 0;
     }
     to {

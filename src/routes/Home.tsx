@@ -19,7 +19,7 @@ function Home() {
   return (
     <Container>
       <ReactPlayer
-        url="https://www.youtube.com/watch?v=AWKzr6n0ea0&autoplay=1"
+        url="https://www.youtube.com/watch?v=AWKzr6n0ea0"
         playing={true}
         loop={true}
         controls={false}

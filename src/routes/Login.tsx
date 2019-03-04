@@ -26,6 +26,7 @@ const LoginInput = styled.input`
   font-size: 1.5rem;
   font-weight: 900;
   text-align: center;
+  width: 100%;
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
   animation-name: expend;
