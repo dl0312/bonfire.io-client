@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { socket } from "../socket";
 
 const Header = styled.header`
+  position: absolute;
+  top: 0px;
   width: 100%;
   height: 60px;
   display: flex;
@@ -38,6 +40,8 @@ const ChatForm = styled.form`
   border: 3px solid black;
   display: grid;
   grid-template-columns: 10fr 1fr;
+  position: absolute;
+  bottom: 0px;
 `;
 
 const MessageInput = styled.input`
@@ -55,9 +59,11 @@ const SubmitBtn = styled.input`
 
 const ChatList = styled.ul`
   width: 100%;
-  height: 100%;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
 `;
 
 const ChatMessage = styled.li`
@@ -106,7 +112,6 @@ function Chat({ name }: any) {
   };
 
   const handleGetUserNumber = (data: any) => {
-    console.log(data);
     const { userNum } = data;
     setUserNum(userNum);
   };
@@ -121,7 +126,6 @@ function Chat({ name }: any) {
   }, []);
   const messagesEnd: any = useRef({});
   const scrollToBottom = () => {
-    console.log(messagesEnd);
     messagesEnd.current.scrollTo({
       top: messagesEnd.current.scrollHeight,
       behavior: "smooth"
