@@ -45,7 +45,7 @@ function Home() {
           overflow: "hidden",
           position: "absolute",
           zIndex: -1,
-          filter: `blur(2px) brightness(${videoStart ? 0.8 : 0.8})`
+          filter: `blur(2px) brightness(${videoStart ? 0.8 : 0})`
         }}
       />
       {!login ? (
