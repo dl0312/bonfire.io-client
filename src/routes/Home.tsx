@@ -20,9 +20,11 @@ function Home() {
     <Container>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=AWKzr6n0ea0"
+        // url={"../static/candle2.mp4"}
         playing={true}
         loop={true}
         controls={false}
+        muted={!videoStart}
         width="100%"
         height="100%"
         onReady={() => console.log("video ready")}
