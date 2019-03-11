@@ -186,6 +186,7 @@ function Chat({ name }: any) {
           if (postMessage) {
             const { id } = socket;
             socket.emit("post message", { name, message, id });
+            setMessage("");
           }
         }}
       >
