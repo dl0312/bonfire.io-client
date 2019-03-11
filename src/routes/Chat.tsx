@@ -138,7 +138,6 @@ function Chat({ name }: any) {
     const { type, name, message } = data;
     setMessages({ type: "add", value: { type, name, message } });
     scrollToBottom();
-    setMessage("");
   };
 
   const handleGetUserNumber = (data: any) => {
