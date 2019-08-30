@@ -1,14 +1,20 @@
 # 🔥 Bonfire.io-client 🔥
 
+<div align="center">
+<img src="./src/static/bonfire pc.PNG"/>
+<img src="./src/static/bonfire.PNG"/>
+</div>
 ## Description
 
 ### 🙋‍♂️ Tell your story around 🔥 the bonfire
 
 ## Dev stack
+
 - React and especially use React's new feature 🎣 Hooks
 - socket.io-client
 
 ## Features
+
 - [x] New User
 - [x] Get User Number
 - [x] Get New Message
@@ -19,6 +25,7 @@
 ## Getting Started
 
 ### Prerequisites
+
 | Require                              | Description                                                               |
 | ------------------------------------ | ------------------------------------------------------------------------- |
 | [Git](https://git-scm.com/)          | We follow the [GitHub Flow](https://guides.github.com/introduction/flow/) |
@@ -43,8 +50,11 @@ In the project root as follows are performed through the `.nvmrc`
 $ nvm use
 Found '/Users/user/Github/higherlowerkor/.nvmrc' with version <10.10.0>
 ```
+
 ### env
+
 fill out `.env` for your socket.io-server
+
 ```
 REACT_APP_SERVER_URL=${your socket.io server url}
 ```
@@ -52,25 +62,35 @@ REACT_APP_SERVER_URL=${your socket.io server url}
 ### Yarn CLIs
 
 #### Install project
+
 ```bash
 $ nvm use
 ...
 $ yarn
 ```
+
 #### Build project
+
 ```bash
 $ yarn build
 ```
+
 #### Test project
+
 ```bash
 $ yarn test
 ```
+
 #### Start project
+
 ```bash
 $ yarn start
 ```
+
 ## References
+
 This project was inspired by this site
+
 - https://stresscompany.net/
 
 ## License
